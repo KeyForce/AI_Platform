@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% if notfound %}
+        {{ notfound }}
+    {% else %}
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="{{ username.avatar_url }}" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{ username.login }}</h5>
+                <p class="card-text">location:{{ username.location }}</p>
+                <p class="card-text">public_repos:{{ username.public_repos }}</p>
+                <p class="card-text">public_gists:{{ username.public_gists }}</p>
+                <p class="card-text">followers:{{ username.followers }}</p>
+                <p class="card-text">created_at:{{ username.created_at }}</p>
+                <p class="card-text">updated_at:{{ username.updated_at }}</p>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 style="color:green;">
+                GeeksforGeeks
+            </h1>
+
+            <p>A computer science portal for geeks</p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            {% for x in api %}
+                <div class="col-sm">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="{{ x.avatar_url }}" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ x.login }}</h5>
+                            <p class="card-text">{{ x.login }}的github</p>
+                            <a href="{{ x.html_url }}" class="btn btn-primary">访问</a>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}
