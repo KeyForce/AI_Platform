@@ -1,8 +1,15 @@
+from django.shortcuts import HttpResponse
 from django.shortcuts import render
+
+from Platform import models
 
 
 # Create your views here.
 def home(request):
+    return render(request, 'home.html', {})
+
+
+def geek(request):
     import requests
     import json
     try:
@@ -14,7 +21,7 @@ def home(request):
         print(e)
         api = None
 
-    return render(request, 'home.html', {'api': api})
+    return render(request, 'geek.html', {'api': api})
 
 
 def user(request):
@@ -23,9 +30,14 @@ def user(request):
         import requests
         import json
         api_requets = requests.get('https://api.github.com/users/' + user)
-        api_requets.close()
         username = json.loads(api_requets.content)
+        api_requets.close()
         return render(request, 'user.html', {'user': user, 'username': username})
     else:
         notfound = '请在搜索框输入你要搜索的内容...'
         return render(request, 'user.html', {'notfound': notfound})
+
+
+def db_handle(request):
+    models.UserInfo.objects.create(username='andy', password='123456', age=33)
+    return HttpResponse('OK')
