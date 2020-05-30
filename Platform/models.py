@@ -11,3 +11,7 @@ class UserInfo(models.Model):
 class GeekInfo(models.Model):
     username = models.CharField(max_length=32)
     html_github = models.CharField(max_length=32)
+
+
+class ImageInfo(models.Model):
+    img = models.ImageField(upload_to='images/')

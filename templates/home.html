@@ -3,5 +3,23 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    <form class="form-row align-items-center" action="" method="post" enctype="multipart/form-data">
+        <div class="input-group">
+            {% csrf_token %}
+            <div class="custom-file">
+                <input type="file" class="custom-file-input" id="inputGroupFile04" name="img">
+                <label class="custom-file-label">Choose file</label>
+            </div>
+            <div class="input-group-append">
+                <input class="form-control mr-sm-2" type="submit" value="上传">
+            </div>
+        </div>
+    </form>
+    <br>
 
+    {% if img %}
+        <div class="card">
+            <img src="{{ img.img.url }}" class="img-responsive" style="width: 100%; float: left; margin-right: 10px;"/>
+        </div>
+    {% endif %}
 {% endblock %}

@@ -1,11 +1,11 @@
 *.sh
 .vscode
 .idea
+/image/images
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
-/Domain-Adaptation/.idea
 *.npz
 # C extensions
 *.so

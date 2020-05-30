@@ -1,12 +1,18 @@
 from django.shortcuts import HttpResponse
 from django.shortcuts import render
 
-from Platform import models
+from Platform.models import *
 
 
 # Create your views here.
 def home(request):
-    return render(request, 'home.html', {})
+    if request.method == 'POST':
+        img = ImageInfo(img=request.FILES.get('img'))
+        img.save()
+        # show_img = ImageInfo.objects.all()
+        return render(request, 'home.html', {'img': img})
+    else:
+        return render(request, 'home.html', {})
 
 
 def geek(request):
@@ -41,3 +47,10 @@ def user(request):
 def db_handle(request):
     models.UserInfo.objects.create(username='andy', password='123456', age=33)
     return HttpResponse('OK')
+
+
+def upload_img(request):
+    if request.method == 'POST':
+        img = ImageInfo(img=request.FILES.get('img'))
+        img.save()
+    return render(request, 'home.html', {'img': img})
