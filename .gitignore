@@ -2,6 +2,7 @@
 .vscode
 .idea
 /image/images
+CNN_Visual/__pycache__/
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

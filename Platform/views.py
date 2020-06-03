@@ -1,6 +1,9 @@
+import os
+
 from django.shortcuts import HttpResponse
 from django.shortcuts import render
 
+from CNN_Visual.visual_all_feature import *
 from Platform.models import *
 
 
@@ -10,7 +13,22 @@ def home(request):
         img = ImageInfo(img=request.FILES.get('img'))
         img.save()
         # show_img = ImageInfo.objects.all()
-        return render(request, 'home.html', {'img': img})
+        model = MyNet()
+
+        Transform = transforms.Compose([
+            transforms.Resize((32, 32)),
+            transforms.ToTensor(),
+            transforms.Normalize([0.49139968, 0.48215827, 0.44653124],
+                                 [0.24703233, 0.24348505, 0.26158768])
+        ])
+
+        heatmap_name = os.listdir('J:/Main Project/AI_Platform/image/heatmap')
+        heatmap = []
+        for i in heatmap_name:
+            heatmap.append({'name': i,
+                            'url': '/image/heatmap/' + i})
+
+        return render(request, 'home.html', {'img': img, 'heatmap': heatmap})
     else:
         return render(request, 'home.html', {})
 

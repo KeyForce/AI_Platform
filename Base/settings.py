@@ -117,3 +117,11 @@ STATIC_URL = '/static/'
 # 添加静态图片支持
 MEDIA_ROOT = os.path.join(BASE_DIR, 'image').replace('\\', '/')
 MEDIA_URL = '/image/'
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+TEMPLATE_DIRS = (
+
+    BASE_DIR + '/templates',
+
+)

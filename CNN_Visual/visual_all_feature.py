@@ -23,6 +23,7 @@ class Net(nn.Module):
         self.fc2 = nn.Linear(120, 84)
         self.fc3 = nn.Linear(84, 10)
 
+
     def forward(self, x):
         x = self.conv1(x)
         draw_features(2, 3, x.cpu().detach().numpy(), "{}/f1_conv1.png".format('./heatmat'))
@@ -93,26 +94,35 @@ def draw_features(width, height, x, savename):
     plt.close()
     print("time:{}".format(time.time() - tic))
 
+def MyNet():
+    model = Net()
+    pretrained_path = 'J:/Main Project/AI_Platform/model/net_params_72p.pkl'
+    pretrained_dict = torch.load(pretrained_path)
+    model.load_state_dict(pretrained_dict)
+    return model
 
-pretrained_path = './net_params_72p.pkl'
 
-# 建立模型
-model = Net().cuda()
-pretrained_dict = torch.load(pretrained_path)
-model.load_state_dict(pretrained_dict)
 
-# 数据预处理
-Transform = transforms.Compose([
-    transforms.Resize((32, 32)),
-    transforms.ToTensor(),
-    transforms.Normalize([0.49139968, 0.48215827, 0.44653124],
-                         [0.24703233, 0.24348505, 0.26158768])
-])
-img = cv2.imread('./cat.png')
-img = Image.fromarray(img)
-img = Transform(img).cuda()
-img = img.unsqueeze(0)
+if __name__ == '__main__':
+    pretrained_path = '../model/net_params_72p.pkl'
 
-start = time.time()
-out = model(img)
-end = time.time()
+    # 建立模型
+    model = Net()
+    pretrained_dict = torch.load(pretrained_path)
+    model.load_state_dict(pretrained_dict)
+
+    # 数据预处理
+    Transform = transforms.Compose([
+        transforms.Resize((32, 32)),
+        transforms.ToTensor(),
+        transforms.Normalize([0.49139968, 0.48215827, 0.44653124],
+                             [0.24703233, 0.24348505, 0.26158768])
+    ])
+    # img = cv2.imread('./cat.png')
+    # img = Image.fromarray(img)
+    # img = Transform(img)
+    # img = img.unsqueeze(0)
+    #
+    # start = time.time()
+    # out = model(img)
+    # end = time.time()

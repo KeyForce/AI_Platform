@@ -22,4 +22,20 @@
             <img src="{{ img.img.url }}" class="img-responsive" style="width: 100%; float: left; margin-right: 10px;"/>
         </div>
     {% endif %}
+    <br>
+    <div class="container">
+        <div class="row">
+            {% for x in heatmap %}
+                <div class="col-sm">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="{{ x.url }}" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ x.name }}</h5>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}
