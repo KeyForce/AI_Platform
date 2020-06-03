@@ -24,29 +24,31 @@ class Net(nn.Module):
         self.fc3 = nn.Linear(84, 10)
 
     def forward(self, x):
+        import random
+        num = random.randint(0, 99)
         x = self.conv1(x)
         draw_features(2, 3, x.cpu().detach().numpy(),
-                      "J:/Main Project/AI_Platform/image/{}/f1_conv1.png".format('heatmap'))
+                      "J:/Main Project/AI_Platform/image/{}/f1_conv1_{}.png".format('heatmap', num))
 
         x = F.relu(x)
         draw_features(2, 3, x.cpu().detach().numpy(),
-                      "J:/Main Project/AI_Platform/image/{}/f1_relu1.png".format('heatmap'))
+                      "J:/Main Project/AI_Platform/image/{}/f1_relu1_{}.png".format('heatmap', num))
 
         x = self.pool1(x)
         draw_features(2, 3, x.cpu().detach().numpy(),
-                      "J:/Main Project/AI_Platform/image/{}/f1_pool1.png".format('heatmap'))
+                      "J:/Main Project/AI_Platform/image/{}/f1_pool1_{}.png".format('heatmap', num))
 
         x = self.conv2(x)
         draw_features(4, 4, x.cpu().detach().numpy(),
-                      "J:/Main Project/AI_Platform/image/{}/f1_conv2.png".format('heatmap'))
+                      "J:/Main Project/AI_Platform/image/{}/f1_conv2_{}.png".format('heatmap', num))
 
         x = F.relu(x)
         draw_features(4, 4, x.cpu().detach().numpy(),
-                      "J:/Main Project/AI_Platform/image/{}/f1_relu2.png".format('heatmap'))
+                      "J:/Main Project/AI_Platform/image/{}/f1_relu2_{}.png".format('heatmap', num))
 
         x = self.pool2(x)
         draw_features(4, 4, x.cpu().detach().numpy(),
-                      "J:/Main Project/AI_Platform/image/{}/f1_pool2.png".format('heatmap'))
+                      "J:/Main Project/AI_Platform/image/{}/f1_pool2_{}.png".format('heatmap', num))
 
         x = x.view(-1, 16 * 5 * 5)
         x = F.relu(self.fc1(x))
@@ -110,24 +112,24 @@ def MyNet():
 
 if __name__ == '__main__':
     pretrained_path = '../model/net_params_72p.pkl'
-
-    # 建立模型
-    model = Net()
-    pretrained_dict = torch.load(pretrained_path)
-    model.load_state_dict(pretrained_dict)
-
-    # 数据预处理
-    Transform = transforms.Compose([
-        transforms.Resize((32, 32)),
-        transforms.ToTensor(),
-        transforms.Normalize([0.49139968, 0.48215827, 0.44653124],
-                             [0.24703233, 0.24348505, 0.26158768])
-    ])
-    img = cv2.imread('./cat.png')
-    img = Image.fromarray(img)
-    img = Transform(img)
-    img = img.unsqueeze(0)
-
-    start = time.time()
-    out = model(img)
-    end = time.time()
+    #
+    # # 建立模型
+    # model = Net()
+    # pretrained_dict = torch.load(pretrained_path)
+    # model.load_state_dict(pretrained_dict)
+    #
+    # # 数据预处理
+    # Transform = transforms.Compose([
+    #     transforms.Resize((32, 32)),
+    #     transforms.ToTensor(),
+    #     transforms.Normalize([0.49139968, 0.48215827, 0.44653124],
+    #                          [0.24703233, 0.24348505, 0.26158768])
+    # ])
+    # img = cv2.imread('./cat.png')
+    # img = Image.fromarray(img)
+    # img = Transform(img)
+    # img = img.unsqueeze(0)
+    #
+    # start = time.time()
+    # out = model(img)
+    # end = time.time()

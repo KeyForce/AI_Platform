@@ -1,7 +1,6 @@
-import os
-
 from django.shortcuts import HttpResponse
 from django.shortcuts import render
+from django.views.decorators.cache import cache_page
 
 from CNN_Visual.visual_all_feature import *
 from Platform.models import *
@@ -9,6 +8,8 @@ from .utils import get_file_list
 
 
 # Create your views here.
+
+@cache_page(3)
 def home(request):
     if request.method == 'POST':
         img = ImageInfo(img=request.FILES.get('img'))
@@ -23,7 +24,7 @@ def home(request):
                                  [0.24703233, 0.24348505, 0.26158768])
         ])
 
-        model_img = cv2.imread('J:/Main Project/AI_Platform'+img.img.url)
+        model_img = cv2.imread('J:/Main Project/AI_Platform' + img.img.url)
         model_img = Image.fromarray(model_img)
         model_img = Transform(model_img)
         model_img = model_img.unsqueeze(0)
@@ -80,4 +81,3 @@ def upload_img(request):
         img = ImageInfo(img=request.FILES.get('img'))
         img.save()
     return render(request, 'home.html', {'img': img})
-
