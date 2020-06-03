@@ -23,25 +23,30 @@ class Net(nn.Module):
         self.fc2 = nn.Linear(120, 84)
         self.fc3 = nn.Linear(84, 10)
 
-
     def forward(self, x):
         x = self.conv1(x)
-        draw_features(2, 3, x.cpu().detach().numpy(), "{}/f1_conv1.png".format('./heatmat'))
+        draw_features(2, 3, x.cpu().detach().numpy(),
+                      "J:/Main Project/AI_Platform/image/{}/f1_conv1.png".format('heatmap'))
 
         x = F.relu(x)
-        draw_features(2, 3, x.cpu().detach().numpy(), "{}/f1_relu1.png".format('./heatmat'))
+        draw_features(2, 3, x.cpu().detach().numpy(),
+                      "J:/Main Project/AI_Platform/image/{}/f1_relu1.png".format('heatmap'))
 
         x = self.pool1(x)
-        draw_features(2, 3, x.cpu().detach().numpy(), "{}/f1_pool1.png".format('./heatmat'))
+        draw_features(2, 3, x.cpu().detach().numpy(),
+                      "J:/Main Project/AI_Platform/image/{}/f1_pool1.png".format('heatmap'))
 
         x = self.conv2(x)
-        draw_features(4, 4, x.cpu().detach().numpy(), "{}/f1_conv2.png".format('./heatmat'))
+        draw_features(4, 4, x.cpu().detach().numpy(),
+                      "J:/Main Project/AI_Platform/image/{}/f1_conv2.png".format('heatmap'))
 
         x = F.relu(x)
-        draw_features(4, 4, x.cpu().detach().numpy(), "{}/f1_relu2.png".format('./heatmat'))
+        draw_features(4, 4, x.cpu().detach().numpy(),
+                      "J:/Main Project/AI_Platform/image/{}/f1_relu2.png".format('heatmap'))
 
         x = self.pool2(x)
-        draw_features(4, 4, x.cpu().detach().numpy(), "{}/f1_pool2.png".format('./heatmat'))
+        draw_features(4, 4, x.cpu().detach().numpy(),
+                      "J:/Main Project/AI_Platform/image/{}/f1_pool2.png".format('heatmap'))
 
         x = x.view(-1, 16 * 5 * 5)
         x = F.relu(self.fc1(x))
@@ -94,13 +99,13 @@ def draw_features(width, height, x, savename):
     plt.close()
     print("time:{}".format(time.time() - tic))
 
+
 def MyNet():
     model = Net()
     pretrained_path = 'J:/Main Project/AI_Platform/model/net_params_72p.pkl'
     pretrained_dict = torch.load(pretrained_path)
     model.load_state_dict(pretrained_dict)
     return model
-
 
 
 if __name__ == '__main__':
@@ -118,11 +123,11 @@ if __name__ == '__main__':
         transforms.Normalize([0.49139968, 0.48215827, 0.44653124],
                              [0.24703233, 0.24348505, 0.26158768])
     ])
-    # img = cv2.imread('./cat.png')
-    # img = Image.fromarray(img)
-    # img = Transform(img)
-    # img = img.unsqueeze(0)
-    #
-    # start = time.time()
-    # out = model(img)
-    # end = time.time()
+    img = cv2.imread('./cat.png')
+    img = Image.fromarray(img)
+    img = Transform(img)
+    img = img.unsqueeze(0)
+
+    start = time.time()
+    out = model(img)
+    end = time.time()

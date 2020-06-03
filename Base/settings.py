@@ -122,6 +122,6 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 TEMPLATE_DIRS = (
 
-    BASE_DIR + '/templates',
+    BASE_DIR + '/image/heatmap',
 
 )

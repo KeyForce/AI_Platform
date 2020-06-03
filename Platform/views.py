@@ -23,6 +23,12 @@ def home(request):
                                  [0.24703233, 0.24348505, 0.26158768])
         ])
 
+        model_img = cv2.imread('J:/Main Project/AI_Platform'+img.img.url)
+        model_img = Image.fromarray(model_img)
+        model_img = Transform(model_img)
+        model_img = model_img.unsqueeze(0)
+        out = model(model_img)
+
         # heatmap_name = os.listdir('J:/Main Project/AI_Platform/image/heatmap')
         heatmap_name = get_file_list('J:/Main Project/AI_Platform/image/heatmap')
         heatmap = []
