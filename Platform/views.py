@@ -5,6 +5,7 @@ from django.shortcuts import render
 
 from CNN_Visual.visual_all_feature import *
 from Platform.models import *
+from .utils import get_file_list
 
 
 # Create your views here.
@@ -22,7 +23,8 @@ def home(request):
                                  [0.24703233, 0.24348505, 0.26158768])
         ])
 
-        heatmap_name = os.listdir('J:/Main Project/AI_Platform/image/heatmap')
+        # heatmap_name = os.listdir('J:/Main Project/AI_Platform/image/heatmap')
+        heatmap_name = get_file_list('J:/Main Project/AI_Platform/image/heatmap')
         heatmap = []
         for i in heatmap_name:
             heatmap.append({'name': i,
@@ -72,3 +74,4 @@ def upload_img(request):
         img = ImageInfo(img=request.FILES.get('img'))
         img.save()
     return render(request, 'home.html', {'img': img})
+
