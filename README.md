@@ -30,7 +30,14 @@
 
 * [Talos](https://github.com/autonomio/talos)
 * [Hpman](https://github.com/megvii-research/hpman)
+* [Optuna: A hyperparameter optimization framework](https://github.com/optuna/optuna)
 
 实验管理工具
 
 * [RunX](https://github.com/NVIDIA/runx)
+* [Sacred: Sacred is a tool to help you configure, organize, log and reproduce experiments developed at IDSIA.](https://github.com/IDSIA/sacred)
+
+分布式训练框架
+
+* [Horovod](https://github.com/horovod/horovod)
+* [BytePS: A high performance and generic framework for distributed DNN training](https://github.com/bytedance/byteps)
