@@ -41,3 +41,7 @@
 
 * [Horovod](https://github.com/horovod/horovod)
 * [BytePS: A high performance and generic framework for distributed DNN training](https://github.com/bytedance/byteps)
+
+在线模型压缩加速
+
+* [一键转换 Caffe, ONNX, TensorFlow 到 NCNN, MNN, Tengine](https://convertmodel.com/)
