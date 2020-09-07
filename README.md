@@ -1,5 +1,3 @@
-
-
 # AI_Platform
 
 ## 效果展示
@@ -19,6 +17,10 @@
 
 
 ## 参考
+
+开源AI平台
+
+* [microsoft/pai: Resource scheduling and cluster management for AI](https://github.com/Microsoft/pai)
 
 网页标注平台
 
