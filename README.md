@@ -21,6 +21,7 @@
 开源AI平台
 
 * [microsoft/pai: Resource scheduling and cluster management for AI](https://github.com/Microsoft/pai)
+* [Angel-ML/angel: A Flexible and Powerful Parameter Server for large-scale machine learning](https://github.com/Angel-ML/angel)
 
 网页标注平台
 
