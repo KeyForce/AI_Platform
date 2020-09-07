@@ -39,6 +39,7 @@
 * [PrefectHQ/Prefect: The easiest way to automate your data](https://github.com/PrefectHQ/prefect)
 * [Sacred: Sacred is a tool to help you configure, organize, log and reproduce experiments developed at IDSIA.](https://github.com/IDSIA/sacred)
 * [RunX](https://github.com/NVIDIA/runx)
+* [Feast: Feature Store for Machine Learning](https://github.com/feast-dev/feast)
 
 分布式训练框架
 
