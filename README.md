@@ -36,6 +36,7 @@
 * [Talos](https://github.com/autonomio/talos)
 * [Hpman](https://github.com/megvii-research/hpman)
 * [Optuna: A hyperparameter optimization framework](https://github.com/optuna/optuna)
+* [Hyperboard: A web-based dashboard for Deep Learning](https://github.com/WarBean/hyperboard)
 
 实验管理工具
 
