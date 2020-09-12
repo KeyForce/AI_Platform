@@ -20,9 +20,10 @@
 
 开源AI平台
 
-* [microsoft/pai: Resource scheduling and cluster management for AI](https://github.com/Microsoft/pai)
-* [microsoft/nni: An open source AutoML toolkit for automate machine learning lifecycle, including feature engineering, neural architecture search, model compression and hyper-parameter tuning.](https://github.com/microsoft/nni)
-* [Angel-ML/angel: A Flexible and Powerful Parameter Server for large-scale machine learning](https://github.com/Angel-ML/angel)
+* [Microsoft/PAI: Resource scheduling and cluster management for AI](https://github.com/Microsoft/pai)
+* [Microsoft/NNI: An open source AutoML toolkit for automate machine learning lifecycle, including feature engineering, neural architecture search, model compression and hyper-parameter tuning.](https://github.com/microsoft/nni)
+* [Angel-ML: A Flexible and Powerful Parameter Server for large-scale machine learning](https://github.com/Angel-ML/angel)
+* [Determined: Deep Learning Training Platform](https://github.com/determined-ai/determined)
 
 网页标注平台
 
