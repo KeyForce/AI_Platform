@@ -44,6 +44,7 @@
 * [Sacred: Sacred is a tool to help you configure, organize, log and reproduce experiments developed at IDSIA.](https://github.com/IDSIA/sacred)
 * [RunX](https://github.com/NVIDIA/runx)
 * [Feast: Feature Store for Machine Learning](https://github.com/feast-dev/feast)
+* [Model analysis tools for TensorFlow 模型分析工具](https://github.com/tensorflow/model-analysis)
 
 分布式训练框架
 
@@ -53,3 +54,4 @@
 在线模型压缩加速
 
 * [一键转换 Caffe, ONNX, TensorFlow 到 NCNN, MNN, Tengine：基于WebAssembly](https://convertmodel.com/)
+
