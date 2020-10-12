@@ -30,6 +30,7 @@
 * [COCO Annotator](https://github.com/jsbroks/coco-annotator)
 * [Label Studio](https://github.com/heartexlabs/label-studio)
 * [Computer Vision Annotation Tool (CVAT)](https://github.com/opencv/cvat)
+* [3D Bounding Box Annotation Tool (3D-BAT) Point cloud and Image Labeling](https://github.com/walzimmer/3d-bat)
 
 超参自动优化工具
 
